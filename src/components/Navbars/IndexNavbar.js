@@ -45,7 +45,7 @@ function IndexNavbar() {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
+      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="success">
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
@@ -90,7 +90,7 @@ function IndexNavbar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="#pablo"
+                  href="/landing-page"
                   onClick={(e) => {
                     e.preventDefault();
                     document
@@ -111,7 +111,7 @@ function IndexNavbar() {
                   target="_blank"
                 >
                   <i className="now-ui-icons arrows-1_share-66 mr-1"></i>
-                  <p>Réserver une place</p>
+                  <p class="text-dark">Réserver une place</p>
                 </Button>
                 <UncontrolledTooltip target="#upgrade-to-pro">
                   Cooming soon!
