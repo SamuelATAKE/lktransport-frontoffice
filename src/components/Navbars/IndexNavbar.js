@@ -84,7 +84,7 @@ function IndexNavbar() {
                       .scrollIntoView();
                   }}
                 >
-                  <i className="now-ui-icons arrows-1_cloud-download-93"></i>
+                  <i className="now-ui-icons business_money-coins"></i>
                   <p>Nos tarifs</p>
                 </NavLink>
               </NavItem>
@@ -98,7 +98,7 @@ function IndexNavbar() {
                       .scrollIntoView();
                   }}
                 >
-                  <i className="now-ui-icons arrows-1_cloud-download-93"></i>
+                  <i className="now-ui-icons text_align-center"></i>
                   <p>A propos</p>
                 </NavLink>
               </NavItem>
