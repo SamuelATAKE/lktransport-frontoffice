@@ -77,12 +77,6 @@ function IndexNavbar() {
               <NavItem>
                 <NavLink
                   href="#pablo"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("download-section")
-                      .scrollIntoView();
-                  }}
                 >
                   <i className="now-ui-icons business_money-coins"></i>
                   <p>Nos tarifs</p>
@@ -91,12 +85,6 @@ function IndexNavbar() {
               <NavItem>
                 <NavLink
                   href="/landing-page"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("download-section")
-                      .scrollIntoView();
-                  }}
                 >
                   <i className="now-ui-icons text_align-center"></i>
                   <p>A propos</p>
@@ -106,20 +94,19 @@ function IndexNavbar() {
                 <Button
                   className="nav-link btn-neutral"
                   color="info"
-                  href="https://www.creative-tim.com/product/now-ui-kit-pro-react?ref=nukr-index-navbar"
+                  href="/reservation"
                   id="upgrade-to-pro"
-                  target="_blank"
                 >
                   <i className="now-ui-icons arrows-1_share-66 mr-1"></i>
                   <p class="text-dark">Réserver une place</p>
                 </Button>
                 <UncontrolledTooltip target="#upgrade-to-pro">
-                  Cooming soon!
+                  Réserver votre ticket depuis chez vous!
                 </UncontrolledTooltip>
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="https://twitter.com/CreativeTim?ref=creativetim"
+                  href="https://twitter.com/"
                   target="_blank"
                   id="twitter-tooltip"
                 >
@@ -132,7 +119,7 @@ function IndexNavbar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                  href="https://www.facebook.com/"
                   target="_blank"
                   id="facebook-tooltip"
                 >
@@ -145,7 +132,7 @@ function IndexNavbar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+                  href="https://www.instagram.com/"
                   target="_blank"
                   id="instagram-tooltip"
                 >

@@ -30,6 +30,7 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+import Form from "views/reservation/Form.js";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -51,6 +52,10 @@ ReactDOM.render(
         <Route
           path="/login-page"
           render={(props) => <LoginPage {...props} />}
+        />
+        <Route
+          path="/reservation"
+          render={(props) => <Form {...props} />}
         />
         <Redirect to="/index" />
         <Redirect from="/" to="/index" />
