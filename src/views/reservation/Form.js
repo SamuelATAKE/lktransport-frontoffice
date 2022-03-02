@@ -97,6 +97,9 @@ function Form() {
                       <option>Kara</option>
                       <option>Sokodé</option>
                       <option>Atakpamé</option>
+                      <option>Niamtougou</option>
+                      <option>Dapaong</option>
+                      <option>Cinkassé</option>
                   </Input>
                 </InputGroup>
                 <InputGroup
@@ -119,6 +122,9 @@ function Form() {
                       <option>Kara</option>
                       <option>Sokodé</option>
                       <option>Atakpamé</option>
+                      <option>Niamtougou</option>
+                      <option>Dapaong</option>
+                      <option>Cinkassé</option>
                   </Input>
                 </InputGroup>
                 <InputGroup

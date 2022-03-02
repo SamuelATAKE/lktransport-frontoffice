@@ -26,7 +26,7 @@ function Tabs() {
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="10" xl="6">
-              <p className="category">Tabs with Icons on Card</p>
+              <p className="category text-center" >Nos stations</p>
               <Card>
                 <CardHeader>
                   <Nav className="justify-content-center" role="tablist" tabs>
@@ -40,7 +40,7 @@ function Tabs() {
                         }}
                       >
                         <i className="now-ui-icons objects_umbrella-13"></i>
-                        Home
+                        Lomé
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -53,7 +53,7 @@ function Tabs() {
                         }}
                       >
                         <i className="now-ui-icons shopping_cart-simple"></i>
-                        Profile
+                        Atakpamé
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -66,7 +66,7 @@ function Tabs() {
                         }}
                       >
                         <i className="now-ui-icons shopping_shop"></i>
-                        Messages
+                        Sokodé
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -79,7 +79,7 @@ function Tabs() {
                         }}
                       >
                         <i className="now-ui-icons ui-2_settings-90"></i>
-                        Settings
+                        Kara
                       </NavLink>
                     </NavItem>
                   </Nav>
@@ -91,47 +91,22 @@ function Tabs() {
                   >
                     <TabPane tabId="iconPills1">
                       <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                        Quartier Cacaveli, non loin de Total Cacaveli
                       </p>
                     </TabPane>
                     <TabPane tabId="iconPills2">
                       <p>
-                        I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at.
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at.
+                        Quartier ------, près du marché d'Atakpamé
                       </p>
                     </TabPane>
                     <TabPane tabId="iconPills3">
                       <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                        Quartier Tchawanda
                       </p>
                     </TabPane>
                     <TabPane tabId="iconPills4">
                       <p>
-                        "I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at."
+                        Quartier ------ 
                       </p>
                     </TabPane>
                   </TabContent>
@@ -139,7 +114,7 @@ function Tabs() {
               </Card>
             </Col>
             <Col className="ml-auto mr-auto" md="10" xl="6">
-              <p className="category">Tabs with Background on Card</p>
+              <p className="category text-center">Escales</p>
               <Card>
                 <CardHeader>
                   <Nav
@@ -157,7 +132,7 @@ function Tabs() {
                           setPills("1");
                         }}
                       >
-                        Home
+                        Lomé
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -169,7 +144,7 @@ function Tabs() {
                           setPills("2");
                         }}
                       >
-                        Profile
+                        Tsévié
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -181,7 +156,7 @@ function Tabs() {
                           setPills("3");
                         }}
                       >
-                        Messages
+                        Atakpamé
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -193,7 +168,7 @@ function Tabs() {
                           setPills("4");
                         }}
                       >
-                        Settings
+                        Blitta
                       </NavLink>
                     </NavItem>
                   </Nav>
@@ -205,47 +180,22 @@ function Tabs() {
                   >
                     <TabPane tabId="pills1">
                       <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                        Rue ---, quartier ---
                       </p>
                     </TabPane>
                     <TabPane tabId="pills2">
                       <p>
-                        I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at.
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at.
+                        Rue ---, quartier ---
                       </p>
                     </TabPane>
                     <TabPane tabId="pills3">
                       <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                      Rue ---, quartier ---
                       </p>
                     </TabPane>
                     <TabPane tabId="pills4">
                       <p>
-                        "I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at."
+                      Rue ---, quartier ---
                       </p>
                     </TabPane>
                   </TabContent>

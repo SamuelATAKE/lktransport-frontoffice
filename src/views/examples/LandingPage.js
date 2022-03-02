@@ -85,25 +85,6 @@ function LandingPage() {
                   <p>
                     Avec des bus de dernière génération, explorer en toute quiétude le pays
                   </p>
-                  <p>
-                    For a start, it does not automatically follow that a record
-                    amount of ice will melt this summer. More important for
-                    determining the size of the annual thaw is the state of the
-                    weather as the midnight sun approaches and temperatures
-                    rise. But over the more than 30 years of satellite records,
-                    scientists have observed a clear pattern of decline,
-                    decade-by-decade.
-                  </p>
-                  <p>
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens with climate change. Even if the
-                    Arctic continues to be one of the fastest-warming regions of
-                    the world, it will always be plunged into bitterly cold
-                    polar dark every winter. And year-by-year, for all kinds of
-                    natural reasons, there’s huge variety of the state of the
-                    ice.
-                  </p>
                 </Col>
               </Row>
             </div>
@@ -124,13 +105,7 @@ function LandingPage() {
                     <h4 className="title">Romina Hadid</h4>
                     <p className="category text-info">Directeur Général</p>
                     <p className="description">
-                      You can write here details about one of your team members.
-                      You can give more details about what they do. Feel free to
-                      add some{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      for people to be able to follow them outside the site.
+                      Informations complémentaires sur la personne ......
                     </p>
                     <Button
                       className="btn-icon btn-round"
@@ -168,13 +143,7 @@ function LandingPage() {
                     <h4 className="title">Ryan Tompson</h4>
                     <p className="category text-info">Directeur des finances</p>
                     <p className="description">
-                      You can write here details about one of your team members.
-                      You can give more details about what they do. Feel free to
-                      add some{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      for people to be able to follow them outside the site.
+                    Informations complémentaires sur la personne ......
                     </p>
                     <Button
                       className="btn-icon btn-round"
@@ -204,13 +173,7 @@ function LandingPage() {
                     <h4 className="title">Eva Jenner</h4>
                     <p className="category text-info">Chef logistique</p>
                     <p className="description">
-                      You can write here details about one of your team members.
-                      You can give more details about what they do. Feel free to
-                      add some{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      for people to be able to follow them outside the site.
+                    Informations complémentaires sur la personne ......
                     </p>
                     <Button
                       className="btn-icon btn-round"
