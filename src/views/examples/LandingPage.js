@@ -177,7 +177,7 @@ function LandingPage() {
                     </p>
                     <Button
                       className="btn-icon btn-round"
-                      color="info"
+                      color="success"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
@@ -185,7 +185,7 @@ function LandingPage() {
                     </Button>
                     <Button
                       className="btn-icon btn-round"
-                      color="info"
+                      color="success"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
@@ -193,7 +193,7 @@ function LandingPage() {
                     </Button>
                     <Button
                       className="btn-icon btn-round"
-                      color="info"
+                      color="success"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
@@ -258,7 +258,7 @@ function LandingPage() {
                   <Button
                     block
                     className="btn-round"
-                    color="info"
+                    color="success"
                     href="#pablo"
                     onClick={(e) => e.preventDefault()}
                     size="lg"

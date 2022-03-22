@@ -71,7 +71,7 @@ function LoginPage() {
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        placeholder="First Name..."
+                        placeholder="Prénom(s)..."
                         type="text"
                         onFocus={() => setFirstFocus(true)}
                         onBlur={() => setFirstFocus(false)}
@@ -89,7 +89,7 @@ function LoginPage() {
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        placeholder="Last Name..."
+                        placeholder="Nom..."
                         type="text"
                         onFocus={() => setLastFocus(true)}
                         onBlur={() => setLastFocus(false)}
@@ -105,7 +105,7 @@ function LoginPage() {
                       onClick={(e) => e.preventDefault()}
                       size="lg"
                     >
-                      Get Started
+                      Se connecter
                     </Button>
                     <div className="pull-left">
                       <h6>
@@ -114,7 +114,7 @@ function LoginPage() {
                           href="#pablo"
                           onClick={(e) => e.preventDefault()}
                         >
-                          Create Account
+                          Créer un compte
                         </a>
                       </h6>
                     </div>
@@ -125,7 +125,7 @@ function LoginPage() {
                           href="#pablo"
                           onClick={(e) => e.preventDefault()}
                         >
-                          Need Help?
+                          Besoin d'aide?
                         </a>
                       </h6>
                     </div>
