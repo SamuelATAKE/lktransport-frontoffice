@@ -76,7 +76,7 @@ function IndexNavbar() {
             <Nav navbar>
               <NavItem>
                 <NavLink
-                  href="#pablo"
+                  href="/tarifs"
                 >
                   <i className="now-ui-icons business_money-coins"></i>
                   <p>Nos tarifs</p>

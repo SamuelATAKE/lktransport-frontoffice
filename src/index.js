@@ -14,6 +14,7 @@ import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import Form from "views/reservation/Form.js";
+import TarifPage from "views/examples/TarifPage";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -31,6 +32,10 @@ ReactDOM.render(
         <Route
           path="/profile-page"
           render={(props) => <ProfilePage {...props} />}
+        />
+        <Route
+          path="/tarifs"
+          render={(props) => <TarifPage {...props} />}
         />
         <Route
           path="/login-page"
