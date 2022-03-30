@@ -12,6 +12,10 @@ import {
   Row,
   Col,
   UncontrolledTooltip,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
 } from "reactstrap";
 
 // core components
@@ -39,6 +43,9 @@ function TarifPage() {
   const dlome = [];
   const dcinkasse = [];
 
+  const [lome, setLome] = React.useState({});
+  const [cinkasse, setCinkasse] = React.useState({});
+
   useEffect(() => {
     app
       .database()
@@ -49,17 +56,24 @@ function TarifPage() {
           console.log("Snapshots");
           // console.log(snapshot.val().key);
           // tab.push(snapshot.val());
-          snapshot.forEach((childSnapshot) => {
-            console.log(childSnapshot.key);
-            console.log(childSnapshot.val());
-            // ...
-            tab.push(childSnapshot.val());
-            if (childSnapshot.val().departure === "Lomé") {
-              dlome.push(childSnapshot.val());
-            } else if (childSnapshot.val().departure === "Cinkassé") {
-              dcinkasse.push(childSnapshot.val());
-            }
-          });
+          if(snapshot.val().departure === 'Lomé'){
+            setLome({ ...snapshot.val() });
+          }else if(snapshot.val().departure === 'Cinkassé'){
+            setCinkasse({ ...snapshot.val() });
+          }
+          
+          // snapshot.forEach((childSnapshot) => {
+          //  console.log(childSnapshot.key);
+          //  console.log(childSnapshot.val());
+          // ...
+          //  tab.push(childSnapshot.val());
+          // if (childSnapshot.val().departure === "Lomé") {
+          //    dlome.push(childSnapshot.val());
+          //    setLome({...childSnapshot.val()});
+          //  } else if (childSnapshot.val().departure === "Cinkassé") {
+          //    dcinkasse.push(childSnapshot.val());
+          //  }
+          // });
         } else {
           tab.push();
         }
@@ -68,12 +82,16 @@ function TarifPage() {
 
   console.log(tab);
   console.log(dlome);
-
+  console.log("Boucle");
+  console.log(lome);
   dlome.forEach((element) => {
     console.log("L'élément");
     console.log(element);
   });
-
+  console.log("Datas");
+  Object.keys(lome).map((id) => {
+    console.log(lome[id]);
+  });
 
   console.log(dcinkasse);
 
@@ -156,27 +174,40 @@ function TarifPage() {
                 <TabPane tabId="pills1">
                   <Col className="ml-auto mr-auto" md="12">
                     <p>Départ: Lomé</p>
-                    <Row className="collections">
-                      {dlome.forEach((element) => {
-                        console.log("L'élément");
-                        console.log(element);
-                        return (
-                          <Col md="6">
-                            Destination: {element.destination}: {element.price}
-                          </Col>
-                        );
-                      })}
-
-                      <Col md="6">Sokodé: 5000</Col>
+                    <Row>
+                        {Object.keys(lome).map((id) => {
+                          //console.log('Collections');
+                          //console.log(lome[id]);
+                          return (
+                            <Col lg="12">
+                              <Card>
+                                <CardHeader className="bg-success text-white"><h3>{lome[id].destination}</h3><hr/></CardHeader>
+                                
+                                <CardFooter className="text-black"><h4>{lome[id].price}</h4></CardFooter>
+                              </Card>
+                            </Col>
+                          );
+                        })}
                     </Row>
                   </Col>
                 </TabPane>
                 <TabPane tabId="pills2">
                   <Col className="ml-auto mr-auto" md="12">
                     <p>Départ: Cinkassé</p>
-                    <Row className="collections">
-                      <Col md="6">Lomé: 5000</Col>
-                      <Col md="6">Lomé: 5000</Col>
+                    <Row>
+                        {Object.keys(cinkasse).map((id) => {
+                          //console.log('Collections');
+                          //console.log(lome[id]);
+                          return (
+                            <Col lg="12">
+                              <Card>
+                                <CardHeader className="bg-success text-white"><h3>{cinkasse[id].destination}</h3><hr/></CardHeader>
+                                
+                                <CardFooter className="text-black"><h4>{cinkasse[id].price}</h4></CardFooter>
+                              </Card>
+                            </Col>
+                          );
+                        })}
                     </Row>
                   </Col>
                 </TabPane>
