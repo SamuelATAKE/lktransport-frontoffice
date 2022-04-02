@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 
 // reactstrap components
 import {
@@ -22,7 +22,7 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
-import app from "../../config";
+import TarifService from "../../services/TarifService";
 
 function TarifPage() {
   const [iconPills, setIconPills] = React.useState("1");
@@ -39,61 +39,29 @@ function TarifPage() {
     };
   }, []);
 
-  const tab = [];
-  const dlome = [];
-  const dcinkasse = [];
+  const [lome, setLome] = React.useState({ tarifs: [] });
+  const [cinkasse, setCinkasse] = React.useState({ tarifs: [] });
 
-  const [lome, setLome] = React.useState({});
-  const [cinkasse, setCinkasse] = React.useState({});
+  const [state, setState] = useState({ tarifs: [] });
 
-  useEffect(() => {
-    app
-      .database()
-      .ref()
-      .child("/tarifs")
-      .on("value", (snapshot) => {
-        if (snapshot.val() !== null) {
-          console.log("Snapshots");
-          // console.log(snapshot.val().key);
-          // tab.push(snapshot.val());
-          if(snapshot.val().departure === 'Lomé'){
-            setLome({ ...snapshot.val() });
-          }else if(snapshot.val().departure === 'Cinkassé'){
-            setCinkasse({ ...snapshot.val() });
-          }
-          
-          // snapshot.forEach((childSnapshot) => {
-          //  console.log(childSnapshot.key);
-          //  console.log(childSnapshot.val());
-          // ...
-          //  tab.push(childSnapshot.val());
-          // if (childSnapshot.val().departure === "Lomé") {
-          //    dlome.push(childSnapshot.val());
-          //    setLome({...childSnapshot.val()});
-          //  } else if (childSnapshot.val().departure === "Cinkassé") {
-          //    dcinkasse.push(childSnapshot.val());
-          //  }
-          // });
-        } else {
-          tab.push();
-        }
-      });
+  TarifService.getTarif().then((response) => {
+    // tab.push(response.data);
+    // console.log('After push');
+    // console.log(JSON.stringify(response.data));
+    response.data.forEach((element) => {
+      // console.log(element.depart);
+      setState({ tarifs: response.data });
+      if (response.data.depart === "Lomé") {
+        // console.log('Lomé');
+        setLome({ tarifs: response.data });
+      } else if (response.data.depart === "Cinkassé") {
+        // console.log('Cinkassé');
+        setCinkasse({ tarifs: response.data });
+      }
+    });
+    console.log("L etat");
+    console.log(state);
   });
-
-  console.log(tab);
-  console.log(dlome);
-  console.log("Boucle");
-  console.log(lome);
-  dlome.forEach((element) => {
-    console.log("L'élément");
-    console.log(element);
-  });
-  console.log("Datas");
-  Object.keys(lome).map((id) => {
-    console.log(lome[id]);
-  });
-
-  console.log(dcinkasse);
 
   return (
     <>
@@ -175,19 +143,20 @@ function TarifPage() {
                   <Col className="ml-auto mr-auto" md="12">
                     <p>Départ: Lomé</p>
                     <Row>
-                        {Object.keys(lome).map((id) => {
-                          //console.log('Collections');
-                          //console.log(lome[id]);
-                          return (
-                            <Col lg="12">
-                              <Card>
-                                <CardHeader className="bg-success text-white"><h3>{lome[id].destination}</h3><hr/></CardHeader>
-                                
-                                <CardFooter className="text-black"><h4>{lome[id].price}</h4></CardFooter>
-                              </Card>
-                            </Col>
-                          );
-                        })}
+                      {lome.tarifs.map((tarif) => (
+                        <Col lg="12" key={tarif.id}>
+                          <Card>
+                            <CardHeader className="bg-success text-white">
+                              <h3>{tarif.destination}</h3>
+                              <hr />
+                            </CardHeader>
+
+                            <CardFooter className="text-black">
+                              <h4>{tarif.prix}</h4>
+                            </CardFooter>
+                          </Card>
+                        </Col>
+                      ))}
                     </Row>
                   </Col>
                 </TabPane>
@@ -195,19 +164,20 @@ function TarifPage() {
                   <Col className="ml-auto mr-auto" md="12">
                     <p>Départ: Cinkassé</p>
                     <Row>
-                        {Object.keys(cinkasse).map((id) => {
-                          //console.log('Collections');
-                          //console.log(lome[id]);
-                          return (
-                            <Col lg="12">
-                              <Card>
-                                <CardHeader className="bg-success text-white"><h3>{cinkasse[id].destination}</h3><hr/></CardHeader>
-                                
-                                <CardFooter className="text-black"><h4>{cinkasse[id].price}</h4></CardFooter>
-                              </Card>
-                            </Col>
-                          );
-                        })}
+                      {cinkasse.tarifs.map((tarif) => (
+                        <Col lg="12" key={tarif.id}>
+                          <Card>
+                            <CardHeader className="bg-success text-white">
+                              <h3>{tarif.destination}</h3>
+                              <hr />
+                            </CardHeader>
+
+                            <CardFooter className="text-black">
+                              <h4>{tarif.prix}</h4>
+                            </CardFooter>
+                          </Card>
+                        </Col>
+                      ))}
                     </Row>
                   </Col>
                 </TabPane>
