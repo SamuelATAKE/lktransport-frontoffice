@@ -56,9 +56,9 @@ function TarifPage() {
     // console.log("L etat");
     // console.log(state.tarifs[0]);
   // });
-
-  // axios.get(`https://lktransportbackend.herokuapp.com/tarif`).then((res) => {
-  axios.get(`http://localhost:8080/tarif`).then((res) => {
+  
+  axios.get(`https://lktransportbackend.herokuapp.com/tarif`).then((res) => {
+  // axios.get(`http://localhost:8080/tarif`).then((res) => {
     // console.log(res.data);
     setState({ tarifs: res.data });
   
