@@ -5,9 +5,9 @@ class TarifService {
     return httpClient.get('/tarif');
   }
 
-  getTarifById(id) {
-    return httpClient.get('/tarif/${id}');
-  }
+  // getTarifById(id) {
+  //   return httpClient.get('/tarif/${id}');
+  // }
 
   addTarif(tarif) {
     return httpClient.post('/tarif', tarif);
