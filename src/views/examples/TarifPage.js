@@ -19,7 +19,6 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
-import TarifService from "../../services/TarifService";
 
 function TarifPage() {
   // const [iconPills, setIconPills] = React.useState("1");
@@ -57,8 +56,8 @@ function TarifPage() {
     // console.log(state.tarifs[0]);
   // });
   
-  axios.get(`https://lktransportbackend.herokuapp.com/tarif`).then((res) => {
-  // axios.get(`http://localhost:8080/tarif`).then((res) => {
+  // axios.get(`https://lktransportbackend.herokuapp.com/tarif`).then((res) => {
+  axios.get(`http://localhost:8080/tarif`).then((res) => {
     // console.log(res.data);
     setState({ tarifs: res.data });
   
