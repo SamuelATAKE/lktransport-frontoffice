@@ -14,6 +14,7 @@ import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import Form from "views/reservation/Form.js";
+import QrCode from "views/reservation/QrCode";
 import TarifPage from "views/examples/TarifPage";
 
 ReactDOM.render(
@@ -33,18 +34,13 @@ ReactDOM.render(
           path="/profile-page"
           render={(props) => <ProfilePage {...props} />}
         />
-        <Route
-          path="/tarifs"
-          render={(props) => <TarifPage {...props} />}
-        />
+        <Route path="/tarifs" render={(props) => <TarifPage {...props} />} />
         <Route
           path="/login-page"
           render={(props) => <LoginPage {...props} />}
         />
-        <Route
-          path="/reservation"
-          render={(props) => <Form {...props} />}
-        />
+        <Route path="/reservation" render={(props) => <Form {...props} />} />
+        <Route path="/qrcode" render={(props) => <QrCode {...props} />} />
         <Redirect to="/index" />
         <Redirect from="/" to="/index" />
       </Switch>

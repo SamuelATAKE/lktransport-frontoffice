@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -40,9 +41,10 @@ const itState = {
   depart: "",
   destination: "",
   prix: "",
-}
+};
 
 function Form() {
+  const history = useHistory();
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   React.useEffect(() => {
@@ -91,39 +93,51 @@ function Form() {
     console.log(state);
 
     fstate.tarifs.forEach((element) => {
-      if(state.depart === element.depart && state.destination === element.destination){
+      if (
+        state.depart === element.depart &&
+        state.destination === element.destination
+      ) {
         const tarif = element;
         console.log("Ice");
 
         tstate.depart = state.depart;
         tstate.destination = state.destination;
-        tstate.prix = element.prix
+        tstate.prix = element.prix;
 
         console.log(tstate);
 
         console.log(element);
 
-        rstate.bagages = state.bagages;
-        rstate.dateVoyage = state.dateVoyage;
-        rstate.tarif = Object.assign(element);
+        rstate.dateVoyage = new Date(state.dateVoyage)
+          .toISOString()
+          .substring(0, 10);
         rstate.nom = state.nom;
-        rstate.station = JSON.parse(state.station);
         rstate.telephone = state.telephone;
-        
+        rstate.bagages = state.bagages;
+        rstate.tarif = Object.assign(element);
+        rstate.station = JSON.parse(state.station);
+
         console.log(rstate);
         console.log(JSON.stringify(rstate));
-
       }
     });
-    console.log('End foreach');
-    axios.post(`http://localhost:8080/reservation`, JSON.stringify(rstate)).then((res) => {
-      console.log(res.data);
-    });
-    console.log('done');
+    console.log("End foreach");
+    axios
+      .post(`http://localhost:8080/reservation`, JSON.stringify(rstate), {
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        sessionStorage.setItem("reservation", res.data);
+        history("/qrcode");
+      });
+    console.log("done");
 
     //for(let elt of sstate){
     //  if(rstate.station === elt.id){
-    //    rstate.station = elt; 
+    //    rstate.station = elt;
     //    break;
     //  }
     // }
@@ -310,7 +324,12 @@ function Form() {
                     >
                       <option>Sélectionner votre station de départ</option>
                       {sstate.stations.map((station) => (
-                        <option value={JSON.stringify(station)} key={station.id}>{station.nom}.</option>
+                        <option
+                          value={JSON.stringify(station)}
+                          key={station.id}
+                        >
+                          {station.nom}.
+                        </option>
                       ))}
                     </Input>
                   </InputGroup>
