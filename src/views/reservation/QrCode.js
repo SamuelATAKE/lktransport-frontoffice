@@ -29,7 +29,7 @@ function QrCode() {
 
   const state = {
     value:
-      "http://localhost:3000/reservation/" +
+      "https://lktransportbackend.herokuapp.com/reservation/" +
       sessionStorage.getItem("reservation"),
   };
 

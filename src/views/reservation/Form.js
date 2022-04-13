@@ -73,11 +73,13 @@ function Form() {
   };
 
   React.useEffect(() => {
-    axios.get(`http://localhost:8080/station`).then((res) => {
-      setSstate({ stations: res.data });
-    });
+    axios
+      .get(`https://lktransportbackend.herokuapp.com/station`)
+      .then((res) => {
+        setSstate({ stations: res.data });
+      });
 
-    axios.get(`http://localhost:8080/tarif`).then((res) => {
+    axios.get(`https://lktransportbackend.herokuapp.com/tarif`).then((res) => {
       setFstate({ tarifs: res.data });
     });
     // console.log("L'état");
@@ -123,11 +125,16 @@ function Form() {
     });
     console.log("End foreach");
     axios
-      .post(`http://localhost:8080/reservation`, JSON.stringify(rstate), {
-        headers: {
-          "content-type": "application/json",
-        },
-      })
+      .post(
+        `https://lktransportbackend.herokuapp.com/reservation`,
+        JSON.stringify(rstate),
+        {
+          // .post(`http://localhost:8080/reservation`, JSON.stringify(rstate), {
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         sessionStorage.setItem("reservation", res.data);
