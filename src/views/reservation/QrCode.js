@@ -61,6 +61,12 @@ function QrCode() {
         <div className="section">
           <Container>
             <h3 className="title">Réservation effectuée</h3>
+            <h4 className="description">
+              Prix total:{" "}
+              {sessionStorage.getItem("reservation")
+                ? sessionStorage.getItem("reservation")
+                : ""}
+            </h4>
             <h5 className="description">Voici votre code QR</h5>
             <center>
               <QRCodeSVG
