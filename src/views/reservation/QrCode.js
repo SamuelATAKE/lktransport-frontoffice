@@ -1,6 +1,7 @@
 import React from "react";
 // reactstrap components
-import { Button, Container, Row, Col } from "reactstrap";
+import { Button, Container } from "reactstrap";
+import ReactToPdf from "react-to-pdf";
 
 // core components
 import DefaultFooter from "components/Footers/DefaultFooter.js";
@@ -9,12 +10,15 @@ import { QRCodeSVG } from "qrcode.react";
 // import { useEffect } from "react/cjs/react.production.min";
 // import IndexNavbar from "components/Navbars/IndexNavbar";
 
-function QrCode() {
+function QrCode(props) {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
+  const ref = React.createRef();
   // const qvalue = "";
   React.useEffect(() => {
-    var reservation = sessionStorage.getItem("reservation");
+    // var reservation = sessionStorage.getItem("reservation");
+    console.log("Réservation");
+    console.log(props.location.state.reservation);
     // qvalue = "reservation/";
     document.body.classList.add("profile-page");
     document.body.classList.add("sidebar-collapse");
@@ -25,12 +29,12 @@ function QrCode() {
       document.body.classList.remove("profile-page");
       document.body.classList.remove("sidebar-collapse");
     };
-  }, []);
+  }, [props]);
 
   const state = {
     value:
       "https://lktransportbackend.herokuapp.com/reservation/" +
-      sessionStorage.getItem("reservation"),
+      sessionStorage.getItem("reservation").id,
   };
 
   const download = () => {
@@ -60,31 +64,49 @@ function QrCode() {
       <div className="wrapper">
         <div className="section">
           <Container>
-            <h3 className="title">Réservation effectuée</h3>
-            <h4 className="description">
-              Prix total:{" "}
-              {sessionStorage.getItem("reservation")
-                ? sessionStorage.getItem("reservation")
-                : ""}
-            </h4>
-            <h5 className="description">Voici votre code QR</h5>
             <center>
-              <QRCodeSVG
-                id="reservation"
-                value={state.value}
-                fgColor="#00FF00"
-                size={220}
-                includeMargin={true}
-              />
-              <Button
-                onClick={download}
-                className="btn-round"
-                color="success"
-                size="md"
+              <ReactToPdf
+                targetRef={ref}
+                filename="mareservation.pdf"
+                x={0.5}
+                y={0.5}
+                scale={0.8}
               >
-                Télécharger
-              </Button>
+                {({ toPdf }) => (
+                  <Button
+                    onClick={toPdf}
+                    className="btn-round"
+                    color="success"
+                    size="md"
+                  >
+                    Télécharger
+                  </Button>
+                )}
+              </ReactToPdf>
             </center>
+          </Container>
+          <Container>
+            <div ref={ref}>
+              <h3 className="title">Réservation effectuée</h3>
+              <hr />
+              <h4 className="description">
+                Frais de voyage: {props.location.state.reservation.tarif.prix}{" "}
+                FCFA
+              </h4>
+              <hr />
+              <h4 className="description">Taxe sur bagages: - FCFA</h4>
+              <hr />
+              <h5 className="description">Voici votre code QR</h5>
+              <center>
+                <QRCodeSVG
+                  id="reservation"
+                  value={state.value}
+                  fgColor="#00FF00"
+                  size={280}
+                  includeMargin={true}
+                />
+              </center>
+            </div>
           </Container>
         </div>
         <DefaultFooter />
