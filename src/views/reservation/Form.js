@@ -74,14 +74,14 @@ function Form() {
 
   React.useEffect(() => {
     axios
-      // .get(`https://lktransportbackend.herokuapp.com/station`)
-      .get(`http://localhost:8080/station`)
+      .get(`https://lktransportbackend.herokuapp.com/station`)
+      // .get(`http://localhost:8080/station`)
       .then((res) => {
         setSstate({ stations: res.data });
       });
 
-    axios.get(`http://localhost:8080/tarif`).then((res) => {
-      // axios.get(`https://lktransportbackend.herokuapp.com/tarif`).then((res) => {
+    // axios.get(`http://localhost:8080/tarif`).then((res) => {
+    axios.get(`https://lktransportbackend.herokuapp.com/tarif`).then((res) => {
       setFstate({ tarifs: res.data });
     });
     // console.log("L'état");
@@ -128,8 +128,8 @@ function Form() {
     console.log("End foreach");
     axios
       .post(
-        // `https://lktransportbackend.herokuapp.com/reservation`,
-        `http://localhost:8080/reservation`,
+        `https://lktransportbackend.herokuapp.com/reservation`,
+        //`http://localhost:8080/reservation`,
         JSON.stringify(rstate),
         {
           // .post(`http://localhost:8080/reservation`, JSON.stringify(rstate), {
@@ -141,8 +141,8 @@ function Form() {
       .then((res) => {
         console.log(res.data);
         sessionStorage.setItem("reservation", rstate);
-        console.log('navigate');
-        history.push({pathname:'/qrcode', state:{reservation : rstate}});
+        console.log("navigate");
+        history.push({ pathname: "/qrcode", state: { reservation: rstate } });
       });
     console.log("done");
 
